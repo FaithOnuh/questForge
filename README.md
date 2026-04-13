@@ -2,7 +2,7 @@
 
 **A quest-based earning platform that turns work into verifiable achievements on the Stellar blockchain.**
 
-[![CI](https://github.com/your-org/questforge/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/questforge/actions/workflows/ci.yml)
+[![CI](https://github.com/FaithOnuh/questForge/actions/workflows/ci.yml/badge.svg)](https://github.com/FaithOnuh/questForge/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Stellar](https://img.shields.io/badge/Stellar-Soroban-blue)](https://soroban.stellar.org)
 
@@ -193,7 +193,7 @@ cd contracts/quest-forge && cargo test
 3. Write tests and ensure they pass
 4. Open a pull request with a clear description
 
-### Commit Convention
+### Commit Convention   
 
 We use [Conventional Commits](https://www.conventionalcommits.org/):
 
