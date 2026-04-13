@@ -1,0 +1,3 @@
+[workspace]
+members = ["contracts/quest-forge"]
+resolver = "2"

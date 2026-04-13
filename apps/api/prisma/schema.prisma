@@ -1,0 +1,58 @@
+// This is your Prisma schema file.
+// Learn more: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Quest {
+  id            String       @id @default(cuid())
+  title         String
+  description   String
+  rewardAsset   String
+  rewardAmount  Float
+  verifier      String?
+  status        QuestStatus  @default(OPEN)
+  deadline      DateTime?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  submissions   Submission[]
+}
+
+model Submission {
+  id        String           @id @default(cuid())
+  questId   String
+  quest     Quest            @relation(fields: [questId], references: [id])
+  address   String
+  proofRef  String
+  status    SubmissionStatus @default(PENDING)
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+}
+
+model User {
+  id        String   @id @default(cuid())
+  address   String   @unique
+  xp        Int      @default(0)
+  badges    String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum QuestStatus {
+  OPEN
+  IN_REVIEW
+  COMPLETED
+  CANCELLED
+}
+
+enum SubmissionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
